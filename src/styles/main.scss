@@ -3,6 +3,18 @@
 
 body {
   background-color: rgb(235, 235, 235);
+  #boards{
+    text-align: center;
+    h1 {
+      font-size: 5em;
+    }
+  }
+  #home{
+    text-align: center;
+    h1 {
+      font-size: 5em;
+    }
+  }
 }
 .hide {
   display: none;
