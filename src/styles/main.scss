@@ -2,5 +2,20 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
-  background-color: red;
+  background-color: rgb(235, 235, 235);
+  #boards{
+    text-align: center;
+    h1 {
+      font-size: 5em;
+    }
+  }
+  #home{
+    text-align: center;
+    h1 {
+      font-size: 5em;
+    }
+  }
+}
+.hide {
+  display: none;
 }
