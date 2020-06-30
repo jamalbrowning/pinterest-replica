@@ -1,19 +1,22 @@
 {
   "pin1": {
+    "boardId": "boardTools",
     "imgUrl": "test",
     "name":"test"
   },
   "pin2": {
+    "boardId": "boardClothes",
     "imgUrl": "test1",
     "name":"test1"
   },
   "pin3": {
+    "boardId": "boardKitchens",
     "imgUrl": "test2",
     "name":"test2"
   },
   "pin4": {
+    "boardId": "boardCarpentry",
     "imgUrl": "test3",
     "name":"test3"
   }
-  
 }
