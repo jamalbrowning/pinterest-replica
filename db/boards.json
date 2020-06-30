@@ -1,14 +1,14 @@
 {
-  "board1": {
+  "boardTools": {
     "category": "tools"
   },
-  "board2": {
+  "boardClothes": {
     "category": "clothes"
   },
-  "board3": {
+  "boardKitchens": {
     "category": "kitchens"
   },
-  "board4": {
+  "boardCarpentry": {
     "category": "carpentry"
   }
 }
