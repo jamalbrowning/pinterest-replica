@@ -29,7 +29,7 @@ const buildBoards = () => {
 
       utils.printToDom('#boards', domString);
 
-      $('body').on('click', '.boardCard', pinList.buildPins);
+      $('body').on('click', pinList.buildPins);
       $('#board-delete').on('click', removeBoardEvent);
     })
     .catch((err) => console.error('oh noooo an error', err));

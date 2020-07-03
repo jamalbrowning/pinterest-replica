@@ -13,6 +13,7 @@ const removePinEvent = (e) => {
 };
 
 const buildPins = (e) => {
+  console.error(e.target.closest('.card').id);
   const boardId = e.target.closest('.card').id;
   pinData.getPinsByBoardId(boardId)
     .then((pinning) => {
@@ -28,7 +29,7 @@ const buildPins = (e) => {
       domString += '</div>';
 
       utils.printToDom('#pins', domString);
-      $('body').on('click', '.delete-pin', removePinEvent);
+      $('body').on('click', removePinEvent);
     })
     .catch((err) => console.error('get pins failed', err));
 };
