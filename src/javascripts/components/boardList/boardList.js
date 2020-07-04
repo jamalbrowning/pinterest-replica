@@ -12,14 +12,19 @@ const removeBoardEvent = (e) => {
 
       buildBoards(); //eslint-disable-line
     })
-    .catch((err) => console.error('could not delete board', err));
+    .catch((err) => console.error('could not do crap', err));
+};
+const reprintBoardsEvent = () => {
+  console.error('its kinda working');
+  buildBoards();//eslint-disable-line 
 };
 
 const buildBoards = () => {
   boardData.getBoards()
     .then((boards) => {
       let domString = `
-      <h2 class="text-center card">Boards</h2>
+      <h2 class="text-center">Boards</h2>
+      <button type="button" class="btn btn-dark back">Back</button>
       <div class="d-flex flex-wrap">
       `;
       boards.forEach((board) => {
@@ -31,6 +36,7 @@ const buildBoards = () => {
 
       $('body').on('click', pinList.buildPins);
       $('#board-delete').on('click', removeBoardEvent);
+      $('.back').on('click', reprintBoardsEvent);
     })
     .catch((err) => console.error('oh noooo an error', err));
 };

@@ -19,7 +19,8 @@ const buildPins = (e) => {
     .then((pinning) => {
       console.error(pinning);
       let domString = `
-        <div class="card">
+        <div class="pin-cards d-flex flex-wrap justify-content-center">
+        
       `;
 
       pinning.forEach((pin) => {
