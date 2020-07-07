@@ -4,7 +4,6 @@ import boardComponent from './board';
 import pinList from '../pinList/pinList';
 
 const removeBoardEvent = (e) => {
-  console.error(e.target.closest('.card').id);
   const boardId = e.target.closest('.card').id;
   boardData.deleteBoard(boardId)
     .then((response) => {
@@ -14,6 +13,7 @@ const removeBoardEvent = (e) => {
     })
     .catch((err) => console.error('could not do crap', err));
 };
+
 // const reprintBoardsEvent = () => {
 //   console.error('its kinda working');
 //   buildBoards();//eslint-disable-line

@@ -2,8 +2,20 @@ import pinComponent from './pin';
 import pinData from '../../helpers/data/pinsData';
 import utils from '../../helpers/utils';
 
+const removePinEvent = (e) => {
+  console.error('please read this thing', e.target.closest('.card').id);
+  const pinId = e.target.closest('.card').id;
+  pinData.deletePin(pinId)
+
+    .then((response) => {
+      console.error('here is the response', response);
+
+      // buildPins(); //eslint-disable-line
+    })
+    .catch((err) => console.error('could not do crap', err));
+};
+
 const buildPins = (e) => {
-  console.error(e.target.closest('.card').id);
   const boardId = e.target.closest('.card').id;
   pinData.getPinsByBoardId(boardId)
     .then((pinning) => {
@@ -22,6 +34,7 @@ const buildPins = (e) => {
       domString += '</div>';
 
       utils.printToDom('#pins', domString);
+      $('#pin-delete').on('click', removePinEvent);
     })
     .catch((err) => console.error('get pins failed', err));
 };
