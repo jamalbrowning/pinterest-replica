@@ -13,7 +13,6 @@ const removeBoardEvent = (e) => {
     })
     .catch((err) => console.error('could not do crap', err));
 };
-
 // const reprintBoardsEvent = () => {
 //   console.error('its kinda working');
 //   buildBoards();//eslint-disable-line
@@ -34,7 +33,8 @@ const buildBoards = () => {
       utils.printToDom('#boards', domString);
 
       $('body').on('click', pinList.buildPins);
-      $('#board-delete').on('click', removeBoardEvent);
+      $('body').on('click', '#board-delete', removeBoardEvent);
+      $('.body').on('click', '#pin-delete', pinList.removePinEvent);
     })
     .catch((err) => console.error('oh noooo an error', err));
 };

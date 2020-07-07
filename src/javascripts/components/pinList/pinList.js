@@ -10,7 +10,8 @@ const removePinEvent = (e) => {
     .then((response) => {
       console.error('here is the response', response);
 
-      // buildPins(); //eslint-disable-line
+      buildPins(); //eslint-disable-line
+      utils.printToDom('#pins', '');
     })
     .catch((err) => console.error('could not do crap', err));
 };
@@ -34,9 +35,8 @@ const buildPins = (e) => {
       domString += '</div>';
 
       utils.printToDom('#pins', domString);
-      $('#pin-delete').on('click', removePinEvent);
     })
     .catch((err) => console.error('get pins failed', err));
 };
 
-export default { buildPins };
+export default { buildPins, removePinEvent };
