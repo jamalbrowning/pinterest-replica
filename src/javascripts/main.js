@@ -7,6 +7,7 @@ import authData from './helpers/data/authData';
 
 import '../styles/main.scss';
 
+// $('#backed').on('click', console.error('this button works'));
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseConfig);
   authData.checkLoginStatus();

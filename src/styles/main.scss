@@ -22,3 +22,7 @@ body {
 .hide {
   display: none;
 }
+.pins {
+  display: flex;
+  flex-flow: row wrap;
+}
