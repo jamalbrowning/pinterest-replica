@@ -4,6 +4,7 @@ import boardComponent from './board';
 import pinList from '../pinList/pinList';
 
 const removeBoardEvent = (e) => {
+  e.preventDefault();
   const boardId = e.target.closest('.card').id;
   boardData.deleteBoard(boardId)
     .then((response) => {
@@ -33,8 +34,8 @@ const buildBoards = () => {
       utils.printToDom('#boards', domString);
 
       $('body').on('click', pinList.buildPins);
+
       $('body').on('click', '#board-delete', removeBoardEvent);
-      $('.body').on('click', '#pin-delete', pinList.removePinEvent);
     })
     .catch((err) => console.error('oh noooo an error', err));
 };
