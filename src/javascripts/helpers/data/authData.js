@@ -4,7 +4,8 @@ import 'firebase/auth';
 import buildBoards from '../../components/boardList/boardList';
 
 const authDiv = $('#auth');
-const newBoardDiv = $('#new-pin');
+const newBoardDiv = $('#new-board');
+const newPinDiv = $('#new-pin');
 const boardsDiv = $('#boards');
 const homeDiv = $('#home');
 const logOutBtn = $('#navbar-logout-button');
@@ -16,6 +17,7 @@ const checkLoginStatus = () => {
       boardsDiv.removeClass('hide');
       logOutBtn.removeClass('hide');
       newBoardDiv.removeClass('hide');
+      newPinDiv.removeClass('hide');
 
       buildBoards.buildBoards();
     } else {
@@ -24,6 +26,7 @@ const checkLoginStatus = () => {
       boardsDiv.addClass('hide');
       logOutBtn.addClass('hide');
       newBoardDiv.addClass('hide');
+      newPinDiv.addClass('hide');
     }
   });
 };

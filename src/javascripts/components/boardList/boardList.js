@@ -3,6 +3,7 @@ import utils from '../../helpers/utils';
 import boardComponent from './board';
 import pinList from '../pinList/pinList';
 import newBoard from '../newBoard/newBoard';
+import newPin from '../newPin/newPin';
 
 const removeBoardEvent = (e) => {
   e.preventDefault();
@@ -36,7 +37,7 @@ const buildBoards = () => {
     .then((boards) => {
       let domString = `
       <h1 class="text-center">Boards</h1>
-      <button class="btn btn-dark" id="show-add-board">New Board</button>
+      <button class="btn btn-dark" id="show-add-board">Create</button>
       <div class="d-flex flex-wrap justify-content-center">
       `;
       boards.forEach((board) => {
@@ -50,6 +51,7 @@ const buildBoards = () => {
 
       $('body').on('click', '#board-delete', removeBoardEvent);
       $('body').on('click', '#show-add-board', newBoard.showForm);
+      $('body').on('click', '#show-add-board', newPin.showForm);
       $('body').on('click', '#board-creator', addBoardEvent);
     })
     .catch((err) => console.error('oh noooo an error', err));
