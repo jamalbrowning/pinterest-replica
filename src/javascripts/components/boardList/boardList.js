@@ -37,7 +37,8 @@ const buildBoards = () => {
     .then((boards) => {
       let domString = `
       <h1 class="text-center">Boards</h1>
-      <button class="btn btn-dark" id="show-add-board">Create</button>
+      <button class="btn btn-dark" id="show-add-board">Create Board</button>
+      <button class="btn btn-dark" id="show-add-pinBoard">Create Pin</button>
       <div class="d-flex flex-wrap justify-content-center">
       `;
       boards.forEach((board) => {
@@ -51,8 +52,9 @@ const buildBoards = () => {
 
       $('body').on('click', '#board-delete', removeBoardEvent);
       $('body').on('click', '#show-add-board', newBoard.showForm);
-      $('body').on('click', '#show-add-board', newPin.showForm);
+      $('body').on('click', '#show-add-pinBoard', newPin.showForm);
       $('body').on('click', '#board-creator', addBoardEvent);
+      $('body').on('click', '#pin-creator', pinList.buildNewPin);
     })
     .catch((err) => console.error('oh noooo an error', err));
 };
