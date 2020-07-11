@@ -24,7 +24,6 @@ const buildNewPin = (e) => {
     .then(() => {
       // eslint-disable-next-line no-use-before-define
       rebuildPins(e);
-      $('#new-board').addClass('hide');
       utils.printToDom('#new-pin', '');
     })
     .catch((err) => console.error('new pins are shitty', err));
