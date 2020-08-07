@@ -3,6 +3,7 @@ import utils from '../../helpers/utils';
 import boardComponent from './board';
 import pinList from '../pinList/pinList';
 import newBoard from '../newBoard/newBoard';
+import newPin from '../newPin/newPin';
 
 const removeBoardEvent = (e) => {
   e.preventDefault();
@@ -36,7 +37,8 @@ const buildBoards = () => {
     .then((boards) => {
       let domString = `
       <h1 class="text-center">Boards</h1>
-      <button class="btn btn-dark" id="show-add-board">New Board</button>
+      <button class="btn btn-dark" id="show-add-board">Create Board</button>
+      <button class="btn btn-dark" id="show-add-pinBoard">Create Pin</button>
       <div class="d-flex flex-wrap justify-content-center">
       `;
       boards.forEach((board) => {
@@ -45,14 +47,18 @@ const buildBoards = () => {
       domString += '</div>';
 
       utils.printToDom('#boards', domString);
-
-      $('body').on('click', pinList.buildPins);
-
-      $('body').on('click', '#board-delete', removeBoardEvent);
-      $('body').on('click', '#show-add-board', newBoard.showForm);
-      $('body').on('click', '#board-creator', addBoardEvent);
+      utils.printToDom('#pins', '');
     })
     .catch((err) => console.error('oh noooo an error', err));
 };
 
-export default { buildBoards };
+const boardEvents = () => {
+  $('body').on('click', pinList.buildPins);
+  $('body').on('click', '#board-delete', removeBoardEvent);
+  $('body').on('click', '#show-add-board', newBoard.showForm);
+  $('body').on('click', '#show-add-pinBoard', newPin.showForm);
+  $('body').on('click', '#board-creator', addBoardEvent);
+  $('body').on('click', '#pin-creator', pinList.buildNewPin);
+  $('body').on('click', '#back-boards', buildBoards);
+};
+export default { buildBoards, boardEvents };

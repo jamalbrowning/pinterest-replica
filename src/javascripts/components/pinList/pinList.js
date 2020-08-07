@@ -11,7 +11,23 @@ const removePinEvent = (e) => {
     })
     .catch((err) => console.error('couldnt delete pin', err));
 };
-
+const buildNewPin = (e) => {
+  const board = 'board';
+  e.preventDefault();
+  const brandNewPin = {
+    boardId: board + $('#pinBoard-id').val().charAt(0).toUpperCase() + $('#pinBoard-id').val().slice(1),
+    imgUrl: $('#imgUrl').val(),
+    name: $('#pin-name').val(),
+    webUrl: $('#webUrl').val(),
+  };
+  pinData.addPin(brandNewPin)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      rebuildPins(e);
+      utils.printToDom('#new-pin', '');
+    })
+    .catch((err) => console.error('new pins are shitty', err));
+};
 const buildPins = (e) => {
   e.preventDefault();
   const boardId = e.target.closest('.card').id;
@@ -20,7 +36,9 @@ const buildPins = (e) => {
       // console.error(pinning);
       let domString = `
         <h2 class="d-flex justify-content-center">Pins</h2>
+        <button class="btn btn-dark d-flex justify-content-center" id="back-boards">back</button>
         <div class="pin-cards d-flex flex-wrap justify-content-center">
+        
         
         
       `;
@@ -31,6 +49,7 @@ const buildPins = (e) => {
       domString += '</div>';
 
       utils.printToDom('#pins', domString);
+      utils.printToDom('#boards', '');
       $('.pin-delete').on('click', console.error('this is what sucks'), removePinEvent);
     })
     .catch((err) => console.error('get pins failed', err));
@@ -54,4 +73,4 @@ const rebuildPins = (e) => {
     })
     .catch((err) => console.error('get pins failed', err));
 };
-export default { buildPins, removePinEvent };
+export default { buildPins, removePinEvent, buildNewPin };
