@@ -36,7 +36,9 @@ const buildPins = (e) => {
       // console.error(pinning);
       let domString = `
         <h2 class="d-flex justify-content-center">Pins</h2>
+        <button class="btn btn-dark d-flex justify-content-center" id="back-boards">back</button>
         <div class="pin-cards d-flex flex-wrap justify-content-center">
+        
         
         
       `;
@@ -47,6 +49,7 @@ const buildPins = (e) => {
       domString += '</div>';
 
       utils.printToDom('#pins', domString);
+      utils.printToDom('#boards', '');
       $('.pin-delete').on('click', console.error('this is what sucks'), removePinEvent);
     })
     .catch((err) => console.error('get pins failed', err));

@@ -20,6 +20,7 @@ const checkLoginStatus = () => {
       newPinDiv.removeClass('hide');
 
       buildBoards.buildBoards();
+      buildBoards.boardEvents();
     } else {
       authDiv.removeClass('hide');
       homeDiv.removeClass('hide');

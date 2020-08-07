@@ -47,16 +47,18 @@ const buildBoards = () => {
       domString += '</div>';
 
       utils.printToDom('#boards', domString);
-
-      $('body').on('click', pinList.buildPins);
-
-      $('body').on('click', '#board-delete', removeBoardEvent);
-      $('body').on('click', '#show-add-board', newBoard.showForm);
-      $('body').on('click', '#show-add-pinBoard', newPin.showForm);
-      $('body').on('click', '#board-creator', addBoardEvent);
-      $('body').on('click', '#pin-creator', pinList.buildNewPin);
+      utils.printToDom('#pins', '');
     })
     .catch((err) => console.error('oh noooo an error', err));
 };
 
-export default { buildBoards };
+const boardEvents = () => {
+  $('body').on('click', pinList.buildPins);
+  $('body').on('click', '#board-delete', removeBoardEvent);
+  $('body').on('click', '#show-add-board', newBoard.showForm);
+  $('body').on('click', '#show-add-pinBoard', newPin.showForm);
+  $('body').on('click', '#board-creator', addBoardEvent);
+  $('body').on('click', '#pin-creator', pinList.buildNewPin);
+  $('body').on('click', '#back-boards', buildBoards);
+};
+export default { buildBoards, boardEvents };
