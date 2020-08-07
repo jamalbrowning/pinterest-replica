@@ -6,7 +6,11 @@ const pinMaker = (pin) => {
     <img class="card-img-top" src="${pin.imgUrl}" alt="Card image cap">
     <div class="card-body">
     <a class="card-text" href="${pin.webUrl}" target="_blank"><h4>${pin.name}</h4></a>
-    <div class="d-flex justify-content-center "><button id="${pin.boardId}" class="btn btn-dark pin-delete"><i class="far fa-trash-alt"></i></button></div>
+    <div class="d-flex justify-content-center ">
+    <button id="${pin.boardId}" class="btn btn-dark pin-delete"><i class="far fa-trash-alt"></i></button>
+    <button id="${pin.boardId}" class="btn btn-dark pin-edit">edit</i></button>
+    </div>
+    
   </div>
 </div>
   `;

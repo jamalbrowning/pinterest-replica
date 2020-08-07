@@ -1,5 +1,6 @@
 import pinComponent from './pin';
 import pinData from '../../helpers/data/pinsData';
+import editPin from '../editPin/editPin';
 import utils from '../../helpers/utils';
 
 const removePinEvent = (e) => {
@@ -73,4 +74,30 @@ const rebuildPins = (e) => {
     })
     .catch((err) => console.error('get pins failed', err));
 };
-export default { buildPins, removePinEvent, buildNewPin };
+
+const showEditPinForm = (e) => {
+  editPin.showPinForm(e.target.closest('.pinners').id);
+};
+const editPinEvent = (e) => {
+  e.preventDefault();
+  const pinId = e.target.cloest('.edit-pin-card').id;
+
+  const editedPin = {
+    boardId: $('#edit-pinBoard-id').val(),
+  };
+
+  pinData.editPin(pinId)(pinId, editedPin)
+    .then(() => {})
+    .catch((err) => console.error('couldnt do it', err));
+};
+
+const pinEvents = () => {
+  $('body').on('click', '.pin-edit', showEditPinForm);
+  $('body').on('click', '.pin-editor', editPinEvent);
+};
+export default {
+  buildPins,
+  removePinEvent,
+  buildNewPin,
+  pinEvents,
+};
