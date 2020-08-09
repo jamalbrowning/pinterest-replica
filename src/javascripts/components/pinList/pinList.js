@@ -80,8 +80,9 @@ const showEditPinForm = (e) => {
 };
 const editPinEvent = (e) => {
   e.preventDefault();
+  console.error(e);
   const pinId = e.target.cloest('.edit-pin-card').id;
-
+  console.error(pinId);
   const editedPin = {
     boardId: $('#edit-pinBoard-id').val(),
   };
@@ -93,7 +94,7 @@ const editPinEvent = (e) => {
 
 const pinEvents = () => {
   $('body').on('click', '.pin-edit', showEditPinForm);
-  $('body').on('click', '.pin-editor', editPinEvent);
+  $('body').on('click', '.pin-editor', editPinEvent, console.error('wooooooo'));
 };
 export default {
   buildPins,
