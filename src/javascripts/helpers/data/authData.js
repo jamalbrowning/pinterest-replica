@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import buildBoards from '../../components/boardList/boardList';
+import pins from '../../components/pinList/pinList';
 
 const authDiv = $('#auth');
 const newBoardDiv = $('#new-board');
@@ -18,7 +19,7 @@ const checkLoginStatus = () => {
       logOutBtn.removeClass('hide');
       newBoardDiv.removeClass('hide');
       newPinDiv.removeClass('hide');
-
+      pins.pinEvents();
       buildBoards.buildBoards();
       buildBoards.boardEvents();
     } else {
