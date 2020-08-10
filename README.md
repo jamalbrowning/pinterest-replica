@@ -13,3 +13,6 @@ This assignment was focused around replicating Pinterest the Social Media App fo
 ### BACKLOG/TODO
 - fix bugs
 - style it better
+
+### Access
+Check out https://pinterest-99615.web.app/ to view 
